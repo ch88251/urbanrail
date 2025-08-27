@@ -1,0 +1,48 @@
+@startuml
+title UrbanRail - High-Level Architecture
+
+actor Passenger
+actor Scheduler
+
+rectangle "Frontend (React)" as UI {
+  rectangle "Web App" as WebApp
+  rectangle "Mobile App" as MobileApp
+  Passenger --> WebApp
+  Passenger --> MobileApp
+  Scheduler --> WebApp
+}
+
+rectangle "Backend (Node.js)" as Backend {
+  rectangle "API Gateway" as APIGateway
+  rectangle "Auth Service" as AuthService
+  rectangle "Train Management Service" as TrainService
+  rectangle "Scheduling Service" as SchedulingService
+  rectangle "Notification Service" as NotificationService
+  rectangle "Pricing Service" as PricingService
+
+  WebApp --> APIGateway
+  MobileApp --> APIGateway
+  APIGateway --> AuthService
+  APIGateway --> TrainService
+  APIGateway --> SchedulingService
+  APIGateway --> NotificationService
+  APIGateway --> PricingService
+
+  database "Train Management DB" as TrainDB
+  database "Customer DB" as CustomerDB
+  database "Scheduling DB" as SchedulingDB
+  database "Pricing DB" as PricingDB
+
+  TrainService --> TrainDB
+  NotificationService --> CustomerDB
+  SchedulingService --> SchedulingDB
+  PricingService --> PricingDB
+}
+
+rectangle "Keycloak (IAM)" as Keycloak
+AuthService -up-> Keycloak : OIDC/OAuth2
+
+
+
+@enduml
+

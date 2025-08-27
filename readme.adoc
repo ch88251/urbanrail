@@ -35,44 +35,21 @@ Schedulers/administrators can:
 
 == Tech Stack
 
-* **Frontend:** React + Vite + Tailwind CSS (or Material UI)  
-* **Backend:** Java Spring Boot or Python FastAPI (your choice)  
-* **Database:** PostgreSQL or MongoDB  
+* **Frontend:** React + Vite + Tailwind CSS
+* **Backend:** Python FastAPI
+* **Database:** PostgreSQL
 * **Deployment:** Docker Compose  
 
 == Architecture
 
+
 The system follows a modular design:
 
-* *Frontend:* Provides an interactive UI for passengers and schedulers  
-* *Backend API:* Handles train, fare, and schedule data  
-* *Database:* Stores trains, routes, fares, and ticket purchases  
+image::design/high-level-architecture.png[UrbanRail High-Level Architecture,align=center]
 
-[plantuml, format=svg]
-----
-@startuml
-title UrbanRail - High-Level Architecture
+* **Frontend:** React-based UI for passengers and schedulers
 
-actor Passenger
-actor Scheduler
-
-rectangle "Frontend (React)" {
-  Passenger --> "Train Search UI"
-  Scheduler --> "Admin Dashboard"
-}
-
-rectangle "Backend API (FastAPI / Spring Boot)" {
-  "Train Search UI" --> "Train Service"
-  "Admin Dashboard" --> "Scheduler Service"
-}
-
-rectangle "Database (Postgres/Mongo)" {
-  "Train Service" --> "Trains Table/Collection"
-  "Scheduler Service" --> "Schedules Table/Collection"
-  "Scheduler Service" --> "Fares Table/Collection"
-}
-@enduml
-----
+* **Backend:** Microservices architecture with REST APIs
 
 == Getting Started
 
@@ -80,12 +57,12 @@ rectangle "Database (Postgres/Mongo)" {
 * Git
 * Docker & Docker Compose
 * Node.js (for frontend dev)
-* Java 17+ or Python 3.11+ (for backend dev)
+* Python 3.12+ (for backend dev)
 
 === Clone the Repository
 [source,bash]
 ----
-git clone https://github.com/your-username/urbanrail.git
+git clone https://github.com/ch88251/urbanrail.git
 cd urbanrail
 ----
 
@@ -105,11 +82,12 @@ Backend API at http://localhost:8080
 
 == Roadmap
 
-* ✅ Train search & schedules  
-* ✅ Fare calculation  
-* ☐ Ticket purchase history  
+* ✅ Initial project setup
+* ☐ Train search & schedules  
+* ☐ Fare calculation  
+* ☐ Ticket purchase  
 * ☐ Integration with external payment API  
-* ☐ Live train status updates  
+* ☐ Live train status updates
 
 == License
 
