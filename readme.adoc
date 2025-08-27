@@ -14,6 +14,7 @@ toc::[]
 
 UrbanRail simulates a simplified commuter train system.  
 Passengers can:
+
 * Search for available trains by station and time
 * View fares based on travel distance or zones
 * Purchase tickets using zone numbers
