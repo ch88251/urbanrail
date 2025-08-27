@@ -21,6 +21,7 @@ Passengers can:
 * View schedules and arrival/departure times  
 
 Schedulers/administrators can:
+
 * Modify train arrival/departure times
 * Update fare rules
 * Manage train routes
